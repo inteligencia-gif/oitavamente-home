@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oitavamente · Oito&amp;Onze Lab</title>
+  <meta name="description" content="Oito pilares. Uma mente que pensa junto com a sua empresa. A frente de produtos do Oito&Onze Lab." />
+  <meta name="color-scheme" content="light only" />
+  <meta name="theme-color" content="#131313" />
+  <meta property="og:title" content="Oitavamente · Oito&Onze Lab" />
+  <meta property="og:description" content="Oito pilares. Uma mente que pensa junto com a sua empresa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131313'/%3E%3Ccircle cx='32' cy='23' r='9' fill='none' stroke='%23FCF484' stroke-width='5'/%3E%3Ccircle cx='32' cy='42' r='11' fill='none' stroke='%23FCF484' stroke-width='5'/%3E%3C/svg%3E" />
+  <style>
+    /* Identidade Oito&Onze: Poppins, preto #131313, amarelo #FCF484, bege #E7E5DC,
+       fundo branco, profundidade por sombra (não por borda), peso forte só em títulos. */
+    :root {
+      --preto: #131313;
+      --amarelo: #FCF484;
+      --bege: #E7E5DC;
+      --suave: #F5F4F0;
+      --tinta-2: #5E5B54;
+      --tinta-3: #8A8A8A;
+      --amarelo-suave: color-mix(in srgb, var(--amarelo) 55%, transparent);
+      --verde: #7ED99A;
+      --azul: #7DB8FF;
+      --roxo: #B99BFF;
+      --sombra-1: 0 1px 2px rgba(19, 19, 19, .05), 0 3px 10px rgba(19, 19, 19, .06);
+      --sombra: 0 1px 3px rgba(19, 19, 19, .05), 0 8px 28px rgba(19, 19, 19, .08);
+      --sombra-3: 0 2px 6px rgba(19, 19, 19, .05), 0 18px 44px rgba(19, 19, 19, .10);
+      --largura: 1160px;
+      --gutter: clamp(16px, 4vw, 40px);
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: #fff; color: var(--preto);
+      font: 400 17px/1.65 'Poppins', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; }
+    p { margin: 0; }
+    a { color: inherit; }
+    .envoltorio { width: 100%; max-width: calc(var(--largura) + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter); }
+    .rotulo { display: inline-block; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-2); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 999px;
+      background: var(--preto); color: #fff; text-decoration: none; font-size: 16px; font-weight: 400;
+      box-shadow: var(--sombra-1); transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+    .btn:focus-visible, a:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--amarelo), 0 0 0 4px rgba(19, 19, 19, .5); }
+    .btn .seta { transition: transform .2s ease; }
+    .btn:hover .seta { transform: translateX(3px); }
+    .btn-claro { background: #fff; color: var(--preto); }
+
+    /* ---------- topo ---------- */
+    .topo { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: box-shadow .3s ease; }
+    .topo.rolou { box-shadow: 0 6px 24px rgba(19, 19, 19, .06); }
+    .topo .envoltorio { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; }
+    .assinatura { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nome { font-size: 21px; font-weight: 600; letter-spacing: -.03em; }
+    .nome b { font-weight: 600; background: linear-gradient(transparent 58%, var(--amarelo) 58%, var(--amarelo) 90%, transparent 90%); }
+    .assinatura .por { display: inline-flex; align-items: center; gap: 6px; padding-left: 12px; font-size: 12px; color: var(--tinta-3); box-shadow: inset 1px 0 0 var(--bege); }
+    .marca-oo { height: 13px; width: 35px; display: block; }
+    .menu { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+    .menu a { text-decoration: none; color: var(--tinta-2); transition: color .2s; }
+    .menu a:hover { color: var(--preto); }
+    .menu .btn { padding: 10px 20px; font-size: 15px; color: #fff; }
+
+    /* ---------- abertura ---------- */
+    .abertura { padding: clamp(48px, 9vw, 112px) 0 clamp(64px, 10vw, 128px); }
+    .abertura .envoltorio { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+    .abertura h1 { font-size: clamp(38px, 5.3vw, 70px); line-height: 1.02; letter-spacing: -.035em; }
+    .abertura h1 > span { display: block; }
+    .abertura h1 .leve { font-weight: 300; }
+    .grifo { position: relative; white-space: nowrap; isolation: isolate; }
+    .grifo::after {
+      content: ''; position: absolute; left: -.06em; right: -.06em; bottom: .04em; height: .34em; z-index: -1;
+      background: var(--amarelo); border-radius: .08em; transform-origin: left; animation: grifar 1s .5s cubic-bezier(.7, 0, .2, 1) both;
+    }
+    @keyframes grifar { from { transform: scaleX(0); } }
+    .abertura-texto { display: grid; gap: 18px; margin-top: 32px; max-width: 560px; color: var(--tinta-2); font-size: 18px; }
+    .abertura-texto strong { color: var(--preto); font-weight: 400; }
+    .abertura .btn { margin-top: 36px; }
+
+    /* oito pilares em volta de uma mente */
+    .pilares { position: relative; width: 100%; max-width: 460px; aspect-ratio: 1; justify-self: center; }
+    .pilares::before { content: ''; position: absolute; inset: 8%; border-radius: 50%; background: radial-gradient(circle, var(--suave) 0 55%, transparent 56%); }
+    .pilares svg { position: relative; width: 100%; height: 100%; overflow: visible; }
+    .orbita { transform-origin: 200px 200px; animation: girar 60s linear infinite; }
+    @keyframes girar { to { transform: rotate(360deg); } }
+    .pilar { fill: #fff; filter: drop-shadow(0 4px 10px rgba(19, 19, 19, .12)); }
+    .pilar-num { font: 500 15px 'Poppins', sans-serif; fill: var(--preto); text-anchor: middle; dominant-baseline: central; }
+    .contra { transform-box: fill-box; transform-origin: center; animation: girar 60s linear infinite reverse; }
+    .fio { stroke: var(--bege); stroke-width: 1.2; }
+    .centro { fill: var(--preto); }
+    .pulso { fill: var(--amarelo); transform-origin: 200px 200px; animation: pulsar 3.6s ease-in-out infinite; }
+    @keyframes pulsar { 0%, 100% { transform: scale(1); opacity: .55; } 50% { transform: scale(1.16); opacity: .9; } }
+
+    /* ---------- laboratório ---------- */
+    .secao { padding: clamp(72px, 11vw, 140px) 0; }
+    .titulo-secao { font-size: clamp(32px, 4.4vw, 54px); margin-top: 14px; }
+    .escura { background: var(--preto); color: #fff; border-radius: clamp(28px, 4vw, 48px); margin: 0 clamp(8px, 1.5vw, 20px); position: relative; overflow: hidden; }
+    .escura .rotulo { color: rgba(255, 255, 255, .6); }
+    .lab::before { content: ''; position: absolute; width: 620px; height: 620px; left: -220px; top: -260px; border-radius: 50%; background: radial-gradient(circle, rgba(252, 244, 132, .14), transparent 65%); pointer-events: none; }
+    .lab .envoltorio { position: relative; }
+    .lab-cabeca { max-width: 720px; }
+    .lab-lados { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 20px; margin-top: clamp(40px, 6vw, 64px); }
+    .lado { display: grid; gap: 18px; align-content: start; padding: clamp(26px, 3.4vw, 40px); border-radius: 28px; background: rgba(255, 255, 255, .06); color: rgba(255, 255, 255, .78); font-size: 18px; }
+    .lado-fora { background: rgba(255, 255, 255, .1); }
+    .lado-rotulo { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+    .ponto-cheio, .ponto-vazio { width: 10px; height: 10px; border-radius: 50%; }
+    .ponto-cheio { background: var(--amarelo); }
+    .ponto-vazio { box-shadow: inset 0 0 0 2px var(--amarelo); }
+    .momentos { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 10px; }
+    .momentos li { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 16px; background: rgba(255, 255, 255, .07); color: #fff; font-size: 16.5px; transition: background .25s ease, transform .25s ease; }
+    .momentos li:hover { background: rgba(252, 244, 132, .14); transform: translateX(4px); }
+    .momentos svg { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--amarelo); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .lab-frase { margin-top: clamp(56px, 8vw, 96px); font-size: clamp(30px, 4.6vw, 60px); font-weight: 300; line-height: 1.08; letter-spacing: -.03em; max-width: 900px; }
+    .lab-frase em { font-style: normal; font-weight: 600; color: var(--amarelo); }
+    .caminho { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px; align-items: center; margin-top: clamp(40px, 6vw, 64px); padding-top: 28px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14); }
+    .caminho-intro { color: rgba(255, 255, 255, .6); font-size: 15px; }
+    .caminho ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .caminho li { display: flex; align-items: center; gap: 12px; color: rgba(255, 255, 255, .86); font-size: 15.5px; line-height: 1.4; }
+    .caminho li span { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--amarelo); color: var(--preto); font-size: 13px; font-weight: 500; }
+
+    /* ---------- produtos ---------- */
+    .produtos { background: linear-gradient(#fff, var(--suave) 22%, var(--suave) 78%, #fff); }
+    .cabeca-secao { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(36px, 5vw, 56px); }
+    .cabeca-secao p { max-width: 380px; color: var(--tinta-2); }
+    .grade-produtos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+    .produto {
+      --cor: var(--amarelo);
+      position: relative; display: flex; flex-direction: column; gap: 14px; padding: 28px 26px 30px; border-radius: 26px;
+      background: #fff; box-shadow: var(--sombra-1); transition: transform .3s ease, box-shadow .3s ease; overflow: hidden;
+    }
+    .produto::after { content: ''; position: absolute; right: -60px; top: -60px; width: 150px; height: 150px; border-radius: 50%; background: color-mix(in srgb, var(--cor) 30%, transparent); transition: transform .5s ease; }
+    .produto:hover { transform: translateY(-6px); box-shadow: var(--sombra-3); }
+    .produto:hover::after { transform: scale(1.35); }
+    .produto .icone { position: relative; z-index: 1; display: grid; place-items: center; width: 54px; height: 54px; border-radius: 16px; background: color-mix(in srgb, var(--cor) 60%, transparent); }
+    .produto .icone svg { width: 28px; height: 28px; fill: none; stroke: var(--preto); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .produto h3 { font-size: 28px; margin-top: 10px; }
+    .produto .para { font-size: 15px; color: var(--preto); padding-bottom: 14px; box-shadow: inset 0 -1px 0 var(--bege); }
+    .produto p { color: var(--tinta-2); font-size: 15.5px; line-height: 1.6; }
+    .produto.verde { --cor: var(--verde); }
+    .produto.azul { --cor: var(--azul); }
+    .produto.roxo { --cor: var(--roxo); }
+
+    /* ---------- método ---------- */
+    .metodo .envoltorio { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 7vw, 96px); }
+    .metodo .titulo-secao { color: #fff; }
+    .metodo-texto { display: grid; gap: 22px; color: rgba(255, 255, 255, .78); font-size: 18px; align-content: start; }
+    .bases { display: grid; gap: 12px; margin-top: 40px; }
+    .bases div { display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-radius: 18px; background: rgba(255, 255, 255, .06); font-size: 17px; }
+    .bases i { width: 10px; height: 10px; border-radius: 50%; background: var(--amarelo); flex: none; }
+    .formato { margin-top: 8px; padding-top: 22px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14); color: #fff; font-size: clamp(21px, 2.2vw, 26px); line-height: 1.35; letter-spacing: -.01em; }
+    .formato em { font-style: normal; color: var(--amarelo); }
+    .metodo-oito { position: absolute; right: -6%; bottom: -30%; width: 46%; opacity: .07; pointer-events: none; }
+
+    /* ---------- para quem ---------- */
+    .grade-quem { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .quem { display: flex; gap: 22px; align-items: flex-start; padding: 30px; border-radius: 24px; background: #fff; box-shadow: var(--sombra-1); font-size: 18px; line-height: 1.5; transition: box-shadow .3s ease; }
+    .quem:hover { box-shadow: var(--sombra); }
+    .quem span { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--amarelo-suave); font-size: 14px; font-weight: 500; }
+
+    /* ---------- começar ---------- */
+    .comecar { padding-top: 0; }
+    .chamada {
+      position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.3fr) auto; gap: 32px; align-items: end;
+      padding: clamp(36px, 6vw, 72px); border-radius: clamp(28px, 4vw, 44px); background: var(--amarelo);
+    }
+    .chamada .rotulo { color: var(--preto); opacity: .65; }
+    .chamada p { margin-top: 18px; max-width: 620px; font-size: 18px; }
+    .chamada::after { content: ''; position: absolute; width: 380px; height: 380px; right: -120px; top: -180px; border-radius: 50%; box-shadow: inset 0 0 0 60px rgba(255, 255, 255, .35); }
+    .chamada .btn { position: relative; z-index: 1; }
+
+    /* ---------- rodapé ---------- */
+    .rodape { padding: 56px 0 40px; }
+    .rodape .envoltorio { display: grid; gap: 40px; }
+    .lema { font-size: clamp(30px, 5vw, 64px); font-weight: 300; letter-spacing: -.035em; line-height: 1.05; }
+    .lema b { font-weight: 600; }
+    .rodape-base { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 24px; box-shadow: inset 0 1px 0 var(--bege); color: var(--tinta-2); font-size: 14px; }
+    .rodape-base .marca-oo { height: 20px; width: 54px; color: var(--preto); }
+
+    /* ---------- entrada suave ---------- */
+    .surge { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
+    .surge.visto { opacity: 1; transform: none; }
+    .grade-produtos .surge:nth-child(2), .grade-quem .surge:nth-child(2) { transition-delay: .08s; }
+    .grade-produtos .surge:nth-child(3), .grade-quem .surge:nth-child(3) { transition-delay: .16s; }
+    .grade-produtos .surge:nth-child(4), .grade-quem .surge:nth-child(4) { transition-delay: .24s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .surge { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---------- telas menores ---------- */
+    @media (max-width: 1040px) {
+      .grade-produtos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 860px) {
+      .menu a:not(.btn) { display: none; }
+      .abertura .envoltorio, .metodo .envoltorio, .chamada, .lab-lados { grid-template-columns: minmax(0, 1fr); }
+      .caminho { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .caminho ol { grid-template-columns: minmax(0, 1fr); }
+      .pilares { max-width: 340px; order: -1; }
+      .grade-quem { grid-template-columns: minmax(0, 1fr); }
+      .chamada { align-items: start; }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      .assinatura .por { display: none; }
+      .menu .btn { padding: 9px 16px; font-size: 14px; }
+      .grade-produtos { grid-template-columns: minmax(0, 1fr); }
+      .abertura-texto, .lado, .metodo-texto, .chamada p { font-size: 16.5px; }
+      .pilares { max-width: 280px; }
+      .quem { padding: 24px; font-size: 16.5px; }
+      .grifo { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="marca-oo" viewBox="436 347 1047 386">
+      <path fill="currentColor" d="M792.96 636.5C775.518 666.349 752.261 689.795 723.193 706.84C693.737 724.282 661.761 733 627.264 733C593.156 733 561.19 724.282 531.357 706.84C501.891 689.795 478.633 666.349 461.589 636.5C444.53 607.049 436 574.884 436 540C436 505.121 444.53 472.757 461.589 442.908C478.633 413.075 501.891 389.628 531.357 372.569C560.808 355.525 592.779 347 627.264 347C661.368 347 693.344 355.525 723.193 372.569C752.643 390.011 775.901 413.457 792.96 442.908C810.004 472.757 818.529 505.121 818.529 540C818.529 574.501 810.004 606.666 792.96 636.5ZM769.698 456.295C754.582 430.705 734.625 410.555 709.827 395.832C684.631 381.098 657.108 373.732 627.264 373.732C597.431 373.732 569.914 381.098 544.723 395.832C519.144 410.947 498.993 431.292 484.26 456.866C469.527 482.445 462.16 510.156 462.16 540C462.16 570.232 469.721 597.943 484.852 623.134C499.962 649.106 520.113 669.451 545.294 684.168C570.108 698.902 597.431 706.268 627.264 706.268C657.491 706.268 685.013 698.713 709.827 683.597C735.4 668.864 755.556 648.713 770.289 623.134C784.625 597.943 791.797 570.232 791.797 540C791.797 510.156 784.431 482.251 769.698 456.295Z"/>
+      <path fill="currentColor" d="M1101.07 591.158L1119.66 609.768L1091.17 633.602L1071.99 614.992L1083.05 606.279L1101.07 591.158ZM995.835 619.645L1103.97 728.939H1067.34L1024.32 687.086C1004.55 702.585 987.31 714.017 972.592 721.389C957.859 729.128 942.744 733 927.251 733C905.156 733 884.806 728.546 866.196 719.634C847.203 710.727 832.287 698.514 821.446 683.005C810.59 667.512 805.162 650.657 805.162 632.439C805.162 609.952 811.167 591.352 823.181 576.629C834.812 562.294 852.835 549.116 877.256 537.102L866.196 526.042C855.35 515.202 846.443 502.611 839.464 488.271C832.486 474.313 828.996 459.192 828.996 442.908C829.374 430.124 832.088 417.921 837.138 406.3C842.168 394.668 849.341 384.399 858.646 375.487C867.951 366.564 878.608 359.784 890.622 355.142C902.631 350.489 915.232 348.163 928.414 348.163C941.581 348.163 954.37 350.489 966.777 355.142C978.786 359.784 989.448 366.564 998.753 375.487C1008.04 384.399 1015.21 394.668 1020.26 406.3C1025.29 417.921 1027.81 430.124 1027.81 442.908C1027.81 461.901 1019.67 479.925 1003.41 496.984C994.1 506.289 985.765 513.462 978.408 518.492L958.635 499.31C972.195 490.781 982.857 481.476 990.611 471.395C997.967 461.712 1001.65 452.213 1001.65 442.908C1001.65 434.001 999.906 425.277 996.427 416.748C992.549 408.233 987.315 400.872 980.734 394.668C966.379 381.486 948.942 374.895 928.414 374.895C908.253 374.895 891.198 381.292 877.256 394.077C863.299 406.866 855.932 423.145 855.157 442.908C855.157 454.54 857.871 465.783 863.299 476.639C868.329 487.485 874.726 496.78 882.48 504.534L995.835 619.645ZM1005.73 668.476L897.009 556.855C872.981 567.711 856.126 578.567 846.443 589.423C836.363 600.269 831.322 614.604 831.322 632.439C831.322 646.004 835.587 658.406 844.117 669.639C852.249 680.878 863.875 689.795 878.991 696.392C894.101 702.978 910.191 706.268 927.251 706.268C938.867 706.268 951.069 702.978 963.859 696.392C976.266 690.188 990.223 680.883 1005.73 668.476Z"/>
+      <path fill="currentColor" d="M1457.43 636.5C1439.99 666.349 1416.73 689.795 1387.66 706.84C1358.21 724.282 1326.23 733 1291.74 733C1257.63 733 1225.66 724.282 1195.83 706.84C1166.36 689.795 1143.1 666.349 1126.06 636.5C1109 607.049 1100.47 574.884 1100.47 540C1100.47 505.121 1109 472.757 1126.06 442.908C1143.1 413.075 1166.36 389.628 1195.83 372.569C1225.28 355.525 1257.25 347 1291.74 347C1325.84 347 1357.81 355.525 1387.66 372.569C1417.11 390.011 1440.37 413.457 1457.43 442.908C1474.48 472.757 1483 505.121 1483 540C1483 574.501 1474.48 606.666 1457.43 636.5ZM1434.17 456.295C1419.05 430.705 1399.1 410.555 1374.3 395.832C1349.1 381.098 1321.58 373.732 1291.74 373.732C1261.9 373.732 1234.38 381.098 1209.19 395.832C1183.61 410.947 1163.46 431.292 1148.73 456.866C1134 482.445 1126.63 510.156 1126.63 540C1126.63 570.232 1134.19 597.943 1149.32 623.134C1164.43 649.106 1184.58 669.451 1209.76 684.168C1234.58 698.902 1261.9 706.268 1291.74 706.268C1321.96 706.268 1349.48 698.713 1374.3 683.597C1399.87 668.864 1420.03 648.713 1434.76 623.134C1449.1 597.943 1456.27 570.232 1456.27 540C1456.27 510.156 1448.9 482.251 1434.17 456.295Z"/>
+      <path fill="currentColor" d="M1463.72 355.78C1465.48 355.78 1466.99 356.095 1468.23 356.726C1469.49 357.349 1470.44 358.234 1471.09 359.382C1471.76 360.522 1472.09 361.864 1472.09 363.407C1472.09 364.958 1471.75 366.292 1471.08 367.409C1470.41 368.519 1469.45 369.37 1468.18 369.963C1468.11 369.996 1468.04 370.028 1467.96 370.059L1472.92 379.131H1467.47L1463.05 370.853H1459.44V379.131H1454.51V355.78H1463.72ZM1459.44 366.885H1462.79C1463.74 366.885 1464.52 366.756 1465.14 366.497C1465.77 366.239 1466.23 365.851 1466.53 365.334C1466.85 364.817 1467 364.175 1467 363.407C1467 362.632 1466.850 361.979 1466.53 361.447C1466.23 360.914 1465.76 360.511 1465.13 360.238C1464.51 359.956 1463.72 359.816 1462.77 359.816H1459.44V366.885Z"/>
+      <path fill="currentColor" d="M1479.34 367.569C1479.34 358.287 1471.81 350.763 1462.53 350.763C1453.25 350.763 1445.730 358.287 1445.73 367.569C1445.73 376.851 1453.25 384.376 1462.53 384.376V388.139C1451.17 388.139 1441.96 378.929 1441.96 367.569C1441.96 356.209 1451.17 347 1462.53 347C1473.89 347 1483.1 356.209 1483.1 367.569C1483.1 378.929 1473.89 388.139 1462.53 388.139V384.376C1471.81 384.376 1479.34 376.851 1479.34 367.569Z"/>
+    </symbol>
+  </svg>
+
+  <header class="topo" id="topo">
+    <div class="envoltorio">
+      <a class="assinatura" href="#" aria-label="Oitavamente, início">
+        <span class="nome"><b>Oita</b>vamente</span>
+        <span class="por">por <svg class="marca-oo" aria-label="Oito&Onze"><use href="#marca-oo" /></svg></span>
+      </a>
+      <nav class="menu" aria-label="Seções">
+        <a href="#produtos">Produtos</a>
+        <a href="#metodo">Método</a>
+        <a href="#para-quem">Para quem é</a>
+        <a class="btn" href="https://oitoeonze.com/sobre" target="_blank" rel="noopener">Falar com o Lab</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Abertura -->
+    <section class="abertura">
+      <div class="envoltorio">
+        <div>
+          <h1><span>Oito pilares.</span><span class="leve">Uma <span class="grifo">mente</span> que pensa junto com a sua empresa.</span></h1>
+          <div class="abertura-texto">
+            <p>A Oitavamente reúne os produtos que nascem desse encontro. São ferramentas que levam o método para a rotina e ajudam a empresa a pensar melhor todos os dias.</p>
+          </div>
+          <a class="btn" href="#produtos">Conhecer os produtos <span class="seta" aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="pilares" aria-hidden="true">
+          <svg viewBox="0 0 400 400">
+            <g class="orbita" id="orbita"></g>
+            <circle class="pulso" cx="200" cy="200" r="54" />
+            <circle class="centro" cx="200" cy="200" r="38" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Do laboratório para a rotina -->
+    <section class="secao lab escura">
+      <div class="envoltorio">
+        <div class="lab-cabeca surge">
+          <span class="rotulo">O Lab</span>
+          <h2 class="titulo-secao">Do laboratório para a rotina da empresa</h2>
+        </div>
+
+        <div class="lab-lados">
+          <div class="lado surge">
+            <span class="lado-rotulo"><i class="ponto-cheio"></i>Na sala</span>
+            <p>A Oito&amp;Onze estuda comportamento, constrói o mapa estratégico de onde a empresa está para onde precisa ir e acompanha a execução. Esse trabalho acontece com o nosso time na sala.</p>
+          </div>
+          <div class="lado lado-fora surge">
+            <span class="lado-rotulo"><i class="ponto-vazio"></i>Fora da sala</span>
+            <p>Só que boa parte do que uma empresa precisa para decidir bem acontece quando ninguém está na sala:</p>
+            <ul class="momentos">
+              <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>na segunda-feira de manhã</li>
+              <li><svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="2.6" /><circle cx="16" cy="9" r="2.6" /><path d="M3.5 18c.6-2.7 2.3-4.2 4.5-4.2s3.9 1.5 4.5 4.2M11.5 18c.6-2.7 2.3-4.2 4.5-4.2s3.9 1.5 4.5 4.2" /></svg>na reunião de time</li>
+              <li><svg viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 6.5" /></svg>no momento de aprovar uma campanha</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="lab-frase surge">A Oitavamente existe para <em>esses momentos.</em></p>
+
+        <div class="caminho surge">
+          <p class="caminho-intro">Cada produto foi</p>
+          <ol>
+            <li><span>1</span>desenvolvido dentro de projetos reais do Lab,</li>
+            <li><span>2</span>testado com clientes</li>
+            <li><span>3</span>e só depois aberto para outras empresas.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produtos -->
+    <section class="secao produtos" id="produtos">
+      <div class="envoltorio">
+        <div class="cabeca-secao surge">
+          <div>
+            <span class="rotulo">Produtos</span>
+            <h2 class="titulo-secao">O que você encontra aqui</h2>
+          </div>
+        </div>
+        <div class="grade-produtos">
+          <article class="produto surge">
+            <span class="icone"><svg viewBox="0 0 28 28"><path d="M5 23V13M11 23V6M17 23v-8M23 23V9" /><path d="M3 23.5h22" /></svg></span>
+            <h3>Painel</h3>
+            <span class="para">Para ver o que está acontecendo</span>
+            <p>Dados de site, redes, vendas e presença em buscas e IAs generativas reunidos em um lugar só, com leitura clara do que mudou e por quê. Sem planilha solta e sem relatório que chega quando a decisão já foi tomada.</p>
+          </article>
+          <article class="produto verde surge">
+            <span class="icone"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="5.5" /><circle cx="14" cy="3.8" r="1.8" /><circle cx="14" cy="24.2" r="1.8" /><circle cx="3.8" cy="14" r="1.8" /><circle cx="24.2" cy="14" r="1.8" /><circle cx="6.8" cy="6.8" r="1.8" /><circle cx="21.2" cy="21.2" r="1.8" /><circle cx="21.2" cy="6.8" r="1.8" /><circle cx="6.8" cy="21.2" r="1.8" /></svg></span>
+            <h3>Mesa</h3>
+            <span class="para">Para pensar junto</span>
+            <p>Ferramenta de dinâmicas e cocriação para times, turmas e conselhos. Organiza a conversa, registra o que cada pessoa trouxe e transforma uma reunião longa em decisões com dono e prazo.</p>
+          </article>
+          <article class="produto azul surge">
+            <span class="icone"><svg viewBox="0 0 28 28"><circle cx="9" cy="10" r="3.2" /><circle cx="19" cy="10" r="3.2" /><path d="M3.5 22c.8-3.6 3-5.6 5.5-5.6s4.7 2 5.5 5.6M13.5 22c.8-3.6 3-5.6 5.5-5.6s4.7 2 5.5 5.6" stroke-dasharray="2.2 2.2" /></svg></span>
+            <h3>Ensaio</h3>
+            <span class="para">Para testar antes</span>
+            <p>Pessoas sintéticas, construídas a partir de dados de comportamento, que reagem a uma campanha, um produto ou uma mudança de preço antes de ele chegar ao mercado. Um jeito de errar no ensaio, e não na estreia.</p>
+          </article>
+          <article class="produto roxo surge">
+            <span class="icone"><svg viewBox="0 0 28 28"><path d="M4 22c4 0 4-6 8-6s4-8 8-8h4" /><circle cx="4" cy="22" r="1.8" /><circle cx="12" cy="16" r="1.8" /><circle cx="20" cy="8" r="1.8" /><path d="M21.5 5.5 24 8l-2.5 2.5" /></svg></span>
+            <h3>Trilha</h3>
+            <span class="para">Para acompanhar a evolução</span>
+            <p>Acompanhamento contínuo da experiência do cliente e dos indicadores definidos no mapa estratégico. Mostra se a empresa está avançando, onde parou e o que precisa de atenção.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Método -->
+    <section class="secao metodo escura" id="metodo">
+      <svg class="metodo-oito" viewBox="0 0 200 300" aria-hidden="true"><circle cx="100" cy="85" r="62" fill="none" stroke="#FCF484" stroke-width="22" /><circle cx="100" cy="210" r="78" fill="none" stroke="#FCF484" stroke-width="22" /></svg>
+      <div class="envoltorio">
+        <div class="surge">
+          <span class="rotulo">O método</span>
+          <h2 class="titulo-secao">O método por trás de cada ferramenta</h2>
+          <div class="bases">
+            <div><i></i>Comportamento humano</div>
+            <div><i></i>Neurociência aplicada</div>
+            <div><i></i>Os Oito Pilares</div>
+          </div>
+        </div>
+        <div class="metodo-texto surge">
+          <p>Muita empresa já tem dado, já tem time e já tem reunião. O que costuma faltar é um jeito de enxergar tudo isso junto e decidir a partir do que as pessoas fazem, e não do que a empresa imagina que elas fazem.</p>
+          <p>Os produtos da Oitavamente carregam a mesma base do método Oito&amp;Onze: comportamento humano, neurociência aplicada e os Oito Pilares.</p>
+          <p class="formato">A diferença é o formato. Em vez de um projeto com começo e fim, <em>uma ferramenta que fica.</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Para quem é -->
+    <section class="secao" id="para-quem">
+      <div class="envoltorio">
+        <div class="cabeca-secao surge">
+          <div>
+            <h2 class="titulo-secao">Para quem é</h2>
+          </div>
+        </div>
+        <div class="grade-quem">
+          <div class="quem surge"><span>01</span><p>Empresas que já passaram por um Estudo O&amp;O e querem manter o mapa estratégico vivo</p></div>
+          <div class="quem surge"><span>02</span><p>Redes, associações e cooperativas que precisam acompanhar muitas unidades ao mesmo tempo</p></div>
+          <div class="quem surge"><span>03</span><p>Times de marketing e experiência que querem decidir com base em dados, e não em impressão</p></div>
+          <div class="quem surge"><span>04</span><p>Consultores, facilitadores e educadores que conduzem dinâmicas e precisam de estrutura</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como começar -->
+    <section class="secao comecar" id="comecar">
+      <div class="envoltorio">
+        <div class="chamada surge">
+          <div>
+            <h2 class="titulo-secao">Como começar</h2>
+            <p>Cada produto pode ser contratado sozinho ou como parte de um projeto do Lab. A primeira conversa serve para entender o momento da sua empresa e indicar por onde faz sentido começar.</p>
+          </div>
+          <a class="btn" href="https://oitoeonze.com/sobre" target="_blank" rel="noopener">Falar com o Lab <span class="seta" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="envoltorio">
+      <p class="lema">Crescer com intenção<br /><b>é uma escolha.</b></p>
+      <div class="rodape-base">
+        <span>Oitavamente é a frente de produtos do Oito&amp;Onze Lab.</span>
+        <svg class="marca-oo" aria-label="Oito&Onze"><use href="#marca-oo" /></svg>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Oito pilares em volta da mente (os números ficam de pé enquanto a órbita gira)
+    (function () {
+      const g = document.getElementById('orbita');
+      const ns = 'http://www.w3.org/2000/svg';
+      const raio = 150;
+      const pontos = [];
+      for (let i = 0; i < 8; i++) {
+        const a = (i / 8) * Math.PI * 2 - Math.PI / 2;
+        pontos.push([200 + raio * Math.cos(a), 200 + raio * Math.sin(a)]);
+      }
+      pontos.forEach(([x, y]) => {
+        const l = document.createElementNS(ns, 'line');
+        l.setAttribute('class', 'fio');
+        l.setAttribute('x1', 200); l.setAttribute('y1', 200); l.setAttribute('x2', x); l.setAttribute('y2', y);
+        g.appendChild(l);
+      });
+      const anel = document.createElementNS(ns, 'circle');
+      anel.setAttribute('class', 'fio'); anel.setAttribute('cx', 200); anel.setAttribute('cy', 200); anel.setAttribute('r', raio); anel.setAttribute('fill', 'none');
+      g.appendChild(anel);
+      pontos.forEach(([x, y], i) => {
+        const p = document.createElementNS(ns, 'g');
+        p.setAttribute('class', 'contra');
+        const c = document.createElementNS(ns, 'circle');
+        c.setAttribute('class', 'pilar'); c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 22);
+        if (i === 0) c.style.fill = '#FCF484';
+        const t = document.createElementNS(ns, 'text');
+        t.setAttribute('class', 'pilar-num'); t.setAttribute('x', x); t.setAttribute('y', y); t.textContent = i + 1;
+        p.append(c, t);
+        g.appendChild(p);
+      });
+    })();
+
+    // Sombra no topo depois de rolar
+    const topo = document.getElementById('topo');
+    const marcarTopo = () => topo.classList.toggle('rolou', scrollY > 8);
+    addEventListener('scroll', marcarTopo, { passive: true });
+    marcarTopo();
+
+    // Entrada suave das seções
+    const itens = document.querySelectorAll('.surge');
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((es) => es.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('visto'); obs.unobserve(e.target); }
+      }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      itens.forEach((el) => obs.observe(el));
+    } else {
+      itens.forEach((el) => el.classList.add('visto'));
+    }
+  </script>
+</body>
+</html>
